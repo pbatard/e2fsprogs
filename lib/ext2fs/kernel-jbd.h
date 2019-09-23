@@ -20,7 +20,7 @@
 #define JFS_DEBUG
 #define jfs_debug jbd_debug
 
-#ifndef __GNUC__
+#if !defined(__GNUC__) && !defined(_MSC_VER)
 #define __FUNCTION__ ""
 #endif
 

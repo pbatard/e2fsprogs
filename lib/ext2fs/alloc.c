@@ -26,14 +26,16 @@
 #include "ext2_fs.h"
 #include "ext2fs.h"
 
+#ifndef min
 #define min(a, b) ((a) < (b) ? (a) : (b))
+#endif
 
 #undef DEBUG
 
 #ifdef DEBUG
 # define dbg_printf(f, a...)  do {printf(f, ## a); fflush(stdout); } while (0)
 #else
-# define dbg_printf(f, a...)
+# define dbg_printf(f, ...)
 #endif
 
 /*

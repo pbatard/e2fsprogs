@@ -186,7 +186,7 @@ static void dbg_print_extent(char *desc, struct ext2fs_extent *extent)
 }
 #else
 #define dbg_print_extent(desc, ex)	do { } while (0)
-#define dbg_printf(f, a...)		do { } while (0)
+#define dbg_printf(f, ...)		do { } while (0)
 #endif
 
 /* Free a range of blocks, respecting cluster boundaries */

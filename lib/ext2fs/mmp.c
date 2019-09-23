@@ -21,7 +21,9 @@
 #if HAVE_UNISTD_H
 #include <unistd.h>
 #endif
+#if HAVE_SYS_TIME_H
 #include <sys/time.h>
+#endif
 
 #include <sys/types.h>
 #include <sys/stat.h>

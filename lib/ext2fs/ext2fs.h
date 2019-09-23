@@ -31,7 +31,7 @@ extern "C" {
 /*
  * Non-GNU C compilers won't necessarily understand inline
  */
-#if (!defined(__GNUC__) && !defined(__WATCOMC__))
+#if (!defined(__GNUC__) && !defined(__WATCOMC__) && !defined(_MSC_VER))
 #define NO_INLINE_FUNCS
 #endif
 
@@ -1796,13 +1796,19 @@ extern const struct ext2_inode *ext2fs_const_inode(const struct ext2_inode_large
  */
 #if (defined(INCLUDE_INLINE_FUNCS) || !defined(NO_INLINE_FUNCS))
 #ifdef INCLUDE_INLINE_FUNCS
+#ifdef _MSC_VER
+#define _INLINE_ __inline
+#else
 #define _INLINE_ extern
+#endif
 #else
 #if (__STDC_VERSION__ >= 199901L)
 #define _INLINE_ inline
 #else
 #ifdef __GNUC__
 #define _INLINE_ extern __inline__
+#elif defined(_MSC_VER)
+#define _INLINE_ extern __inline
 #else				/* For Watcom C */
 #define _INLINE_ extern inline
 #endif /* __GNUC__ */

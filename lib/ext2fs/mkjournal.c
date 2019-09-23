@@ -32,6 +32,9 @@
 #if HAVE_NETINET_IN_H
 #include <netinet/in.h>
 #endif
+#ifdef _MSC_VER
+#include <io.h>
+#endif
 
 #include "ext2_fs.h"
 #include "e2p/e2p.h"
