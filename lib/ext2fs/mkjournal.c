@@ -157,7 +157,7 @@ errcode_t ext2fs_zero_blocks2(ext2_filsys fs, blk64_t blk, int num,
 {
 	int		j, count;
 	static void	*buf;
-	static int	stride_length;
+	static int	stride_length = 0;
 	errcode_t	retval;
 
 	/* If fs is null, clean up the static buffer and return */
